@@ -52,7 +52,7 @@ public class PairShould {
 	public void beRecognizedInHashSet() throws Exception {
 		Pair<Integer, Integer> p1 = getPair(23, 66);
 		Pair<Integer, Integer> p2 = getPair(23, 66);
-		HashSet<Pair<Integer, Integer> > hs = new HashSet();
+		HashSet<Pair<Integer, Integer> > hs = new HashSet<Pair<Integer, Integer> >();
 		hs.add(p1);
 		assertTrue(hs.contains(p2));
 
@@ -62,7 +62,7 @@ public class PairShould {
 	public void notCauseFalsePositivesInHashSet() throws Exception {
 		Pair<Integer, Integer> p1 = getPair(23, 66);
 		Pair<Integer, Integer> p2 = getPair(23, 67);
-		HashSet<Pair<Integer, Integer> > hs = new HashSet();
+		HashSet<Pair<Integer, Integer> > hs = new HashSet<Pair<Integer, Integer> >();
 		hs.add(p1);
 		assertFalse(hs.contains(p2));
 
@@ -72,6 +72,6 @@ public class PairShould {
 	 * utility functions
 	 */
 	 private Pair<Integer, Integer> getPair(int a, int b){
-		 return new Pair(a, b);
+		 return new Pair<Integer, Integer>(a, b);
 	 }
 }

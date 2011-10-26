@@ -10,7 +10,7 @@ public class MineSweeperBoardShould {
 	public void acceptAValidMine() throws Exception {
 		MineSweeperBoard mb = new MineSweeperBoard(8, 8);
 		assertTrue(mb.placeMine(1, 2));
-		//    getCoords(a, b)
+		
 	}
 	
 	
