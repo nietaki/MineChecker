@@ -9,7 +9,7 @@ public class MineCountShould {
 	@Test
 	public void beZeroForEmptyBoard() throws Exception {
 		MineSweeperBoard mb = new MineSweeperBoard(8, 8);
-		assertTrue(mb.getSurroundingMineCount(1, 2) == 0);
+		assertTrue(mb.mineCount(1, 2) == 0);
 	}
 
 }
