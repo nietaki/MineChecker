@@ -25,6 +25,16 @@ public class MineSweeperBoard {
 		return ret;
 	}
 
+	boolean removeMine(int x, int y){
+		if(outOfBounds(x, y))
+			return false;
+		Coords c = getCoords(x, y);
+		boolean ret = fields.remove(c);
+		if(ret)
+			updateMineCount(x, y, -1);
+		return ret;
+	}
+
 	private void updateMineCount(int x, int y, int count_change) {
 		//updating mine counts
 		for(int i=-1; i<=1; i++){
@@ -38,15 +48,14 @@ public class MineSweeperBoard {
 		}
 	}
 
-	boolean removeMine(int x, int y){
-		if(outOfBounds(x, y))
-			return false;
-		Coords c = getCoords(x, y);
-		boolean ret = fields.remove(c);
-		if(ret)
-			updateMineCount(x, y, -1);
-		return ret;
+	int mineCount(int x, int y){
+		if(inBounds(x, y))
+			return mine_counts[x][y];
+		return 0;
 	}
+
+
+	/* setters, getters, helpers */
 	private boolean inBounds(int x, int y){
 		return ! outOfBounds(x, y);
 	}
@@ -54,14 +63,7 @@ public class MineSweeperBoard {
 		return x<0 || x>=getSizeX() ||
 			 y<0 || y>=getSizeY();
 	}
-	
-	int mineCount(int x, int y){
-		if(inBounds(x, y))
-			return mine_counts[x][y];
-		return 0;
-	}
 
-	/* setters, getters, helpers */
 	public int getSizeX() {
 		return sizeX;
 	}

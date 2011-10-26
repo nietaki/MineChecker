@@ -64,11 +64,10 @@ public class MineCountShould {
 		assertCount(mb, 2, 3, 1);
 	}
 	
+	
 	/* helpers and so on*/
 	private void assertCount(MineSweeperBoard mb, int x, int y, int count) throws Exception {
 		assertTrue(mb.mineCount(x, y) == count);
 	}
-	
-	
 
 }
