@@ -33,7 +33,7 @@ public class MineSweeperBoard {
 	}
 	
 	int mineCount(int x, int y){
-		return -1;
+		return 0;
 	}
 
 	/* setters, getters, helpers */
