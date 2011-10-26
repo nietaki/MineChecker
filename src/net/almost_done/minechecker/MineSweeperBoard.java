@@ -16,26 +16,39 @@ public class MineSweeperBoard {
 	}
 
 	boolean placeMine(int x, int y){
-		if(inBounds(x, y))
+		if(outOfBounds(x, y))
 			return false;
 		Coords c = getCoords(x, y);
-		return fields.add(c);
+		boolean ret = fields.add(c);
+		int count_change = 1;
+		for(int i=-1; i<=1; i++){
+			for(int j=-1; j<=1; j++){
+				int posx = x+i;
+				int posy = y+j;
+				if((i!=0 || j!=0) && inBounds(posx, posy)){
+					mine_counts[posx][posy] += count_change;
+				}
+			}
+		}
+		return ret;
 	}
 
 	boolean removeMine(int x, int y){
-		if(inBounds(x, y))
+		if(outOfBounds(x, y))
 			return false;
 		Coords c = getCoords(x, y);
 		return fields.remove(c);
 	}
-
-	private boolean inBounds(int x, int y) {
+	private boolean inBounds(int x, int y){
+		return ! outOfBounds(x, y);
+	}
+	private boolean outOfBounds(int x, int y) {
 		return x<0 || x>=getSizeX() ||
 			 y<0 || y>=getSizeY();
 	}
 	
 	int mineCount(int x, int y){
-		return 0;
+		return mine_counts[x][y];
 	}
 
 	/* setters, getters, helpers */
