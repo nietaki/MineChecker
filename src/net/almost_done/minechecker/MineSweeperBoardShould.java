@@ -73,5 +73,4 @@ public class MineSweeperBoardShould {
 		mb.placeMine(1, 2);
 		assertFalse(mb.removeMine(-2, 33));
 	}
-	
 }

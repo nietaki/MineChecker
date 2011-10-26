@@ -32,7 +32,7 @@ public class MineSweeperBoard {
 			 y<0 || y>=getSizeY();
 	}
 	
-	int getSurroundingMineCount(){
+	int getSurroundingMineCount(int x, int y){
 		return -1;
 	}
 
@@ -40,12 +40,15 @@ public class MineSweeperBoard {
 	public int getSizeX() {
 		return sizeX;
 	}
+	
 	private void setSizeX(int sizeX) {
 		this.sizeX = sizeX;
 	}
+	
 	public int getSizeY() {
 		return sizeY;
 	}
+	
 	private void setSizeY(int sizeY) {
 		this.sizeY = sizeY;
 	}
