@@ -15,7 +15,7 @@ public class MineCountShould {
 	public void beOneForNeighbouringMine() throws Exception {
 		MineSweeperBoard mb = new MineSweeperBoard(8, 8);
 		mb.placeMine(2, 2);
-		assertCont(mb, 1, 2, 0);
+		assertCont(mb, 1, 2, 1);
 	}
 	private void assertCont(MineSweeperBoard mb, int x, int y, int count) throws Exception {
 		assertTrue(mb.mineCount(x, y) == count);

@@ -6,9 +6,11 @@ import static net.almost_done.minechecker.Coords.*;
 public class MineSweeperBoard {
 	private int sizeX, sizeY;
 	private HashSet<Coords> fields;
+	private int[][] mine_counts;
 
 	public MineSweeperBoard(int x, int y){
 		fields = new HashSet<Coords>();
+		mine_counts = new int[x][y];
 		setSizeX(x);
 		setSizeY(y);
 	}
