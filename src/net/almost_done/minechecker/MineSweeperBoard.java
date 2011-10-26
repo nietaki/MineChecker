@@ -21,6 +21,18 @@ public class MineSweeperBoard {
 		return fields.add(c);
 	}
 
+	boolean removeMine(int x, int y){
+		if(x<0 || x>=getSizeX() ||
+			 y<0 || y>=getSizeY())
+			return false;
+		Coords c = getCoords(x, y);
+		return fields.remove(c);
+	}
+	
+	int getSurroundingMineCount(){
+		return -1;
+	}
+
 	/* setters, getters, helpers */
 	public int getSizeX() {
 		return sizeX;
