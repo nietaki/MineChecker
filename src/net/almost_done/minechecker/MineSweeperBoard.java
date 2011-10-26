@@ -48,7 +48,9 @@ public class MineSweeperBoard {
 	}
 	
 	int mineCount(int x, int y){
-		return mine_counts[x][y];
+		if(inBounds(x, y))
+			return mine_counts[x][y];
+		return 0;
 	}
 
 	/* setters, getters, helpers */
