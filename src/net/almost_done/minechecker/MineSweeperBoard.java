@@ -14,19 +14,22 @@ public class MineSweeperBoard {
 	}
 
 	boolean placeMine(int x, int y){
-		if(x<0 || x>=getSizeX() ||
-			 y<0 || y>=getSizeY())
+		if(inBounds(x, y))
 			return false;
 		Coords c = getCoords(x, y);
 		return fields.add(c);
 	}
 
 	boolean removeMine(int x, int y){
-		if(x<0 || x>=getSizeX() ||
-			 y<0 || y>=getSizeY())
+		if(inBounds(x, y))
 			return false;
 		Coords c = getCoords(x, y);
 		return fields.remove(c);
+	}
+
+	private boolean inBounds(int x, int y) {
+		return x<0 || x>=getSizeX() ||
+			 y<0 || y>=getSizeY();
 	}
 	
 	int getSurroundingMineCount(){
