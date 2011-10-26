@@ -20,9 +20,12 @@ public class MineSweeperBoard {
 			return false;
 		Coords c = getCoords(x, y);
 		boolean ret = fields.add(c);
-		
+		updateMineCount(x, y, 1);
+		return ret;
+	}
+
+	private void updateMineCount(int x, int y, int count_change) {
 		//updating mine counts
-		int count_change = 1;
 		for(int i=-1; i<=1; i++){
 			for(int j=-1; j<=1; j++){
 				int posx = x+i;
@@ -32,12 +35,12 @@ public class MineSweeperBoard {
 				}
 			}
 		}
-		return ret;
 	}
 
 	boolean removeMine(int x, int y){
 		if(outOfBounds(x, y))
 			return false;
+		updateMineCount(x, y, -1);
 		Coords c = getCoords(x, y);
 		return fields.remove(c);
 	}
