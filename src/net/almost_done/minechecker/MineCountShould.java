@@ -32,6 +32,24 @@ public class MineCountShould {
 		assertCount(mb, 8, 2, 0);
 	}
 	
+	@Test
+	public void stack() throws Exception {
+		MineSweeperBoard mb = new MineSweeperBoard(8, 8);
+		mb.placeMine(2, 2);
+		mb.placeMine(4, 4);
+		assertCount(mb, 3, 3, 2);
+	}
+
+	@Test
+	public void reactToMineRemoval() throws Exception {
+		MineSweeperBoard mb = new MineSweeperBoard(8, 8);
+		mb.placeMine(2, 2);
+		mb.removeMine(2, 2);
+		assertCount(mb, 3, 2, 0);
+	}
+
+	
+	
 	/* helpers and so on*/
 	private void assertCount(MineSweeperBoard mb, int x, int y, int count) throws Exception {
 		assertTrue(mb.mineCount(x, y) == count);
