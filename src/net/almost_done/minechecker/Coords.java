@@ -5,4 +5,8 @@ public final class Coords extends Pair<Integer, Integer> {
 		super(a, b);
 	}
 
+	public static Coords getCoords(int a, int b){
+		return new Coords(a, b);
+	}
+
 }
