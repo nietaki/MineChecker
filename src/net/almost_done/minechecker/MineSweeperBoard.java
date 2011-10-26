@@ -20,6 +20,8 @@ public class MineSweeperBoard {
 			return false;
 		Coords c = getCoords(x, y);
 		boolean ret = fields.add(c);
+		
+		//updating mine counts
 		int count_change = 1;
 		for(int i=-1; i<=1; i++){
 			for(int j=-1; j<=1; j++){
