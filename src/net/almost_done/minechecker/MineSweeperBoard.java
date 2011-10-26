@@ -14,6 +14,9 @@ public class MineSweeperBoard {
 	}
 
 	boolean placeMine(int x, int y){
+		if(x<0 || x>=getSizeX() ||
+			 y<0 || y>=getSizeY())
+			return false;
 		Coords c = getCoords(x, y);
 		return fields.add(c);
 	}

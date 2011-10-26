@@ -21,9 +21,25 @@ public class MineSweeperBoardShould {
 
 	@Test
 	public void notAcceptAMineOutOfBoundsX1() throws Exception {
-		MineSweeperBoard mb = new MineSweeperBoard(8, 8);
+		MineSweeperBoard mb = new MineSweeperBoard(5, 8);
 		assertFalse(mb.placeMine(-1, 2));
 	}	
+
+	@Test
+	public void notAcceptAMineOutOfBoundsX2() throws Exception {
+		MineSweeperBoard mb = new MineSweeperBoard(5, 8);
+		assertFalse(mb.placeMine(5, 2)); //border case
+	}
+	@Test
+	public void notAcceptAMineOutOfBoundsY1() throws Exception {
+		MineSweeperBoard mb = new MineSweeperBoard(5, 8);
+		assertFalse(mb.placeMine(0, -5));
+	}	
 	
+	@Test
+	public void notAcceptAMineOutOfBoundsy2() throws Exception {
+		MineSweeperBoard mb = new MineSweeperBoard(5, 8);
+		assertFalse(mb.placeMine(4, 9)); //border case
+	}
 	
 }
